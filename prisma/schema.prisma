@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String            @id @default(uuid())
+  name             String
+  email            String            @unique
+  password         String
+  role             Role
+  contactNo        String
+  address          String
+  profileImg       String
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  reviewAndRatings ReviewAndRating[]
+  orders           Order[]
+
+  @@map("users")
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  books     Book[]
+
+  @@map("categories")
+}
+
+model Book {
+  id              String @id @default(uuid())
+  title           String
+  author          String
+  price           Float
+  genre           String
+  publicationDate String
+  categoryId      String // Assuming UUIDs are stored as strings
+
+  // Reference to the Category model
+  category         Category          @relation(fields: [categoryId], references: [id])
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  reviewAndRatings ReviewAndRating[]
+
+  @@map("books")
+}
+
+model ReviewAndRating {
+  id     String @id @default(uuid())
+  review String
+  rating Int
+  userId String // Assuming UUIDs are stored as strings
+  bookId String // Assuming UUIDs are stored as strings
+
+  // Reference to the User model
+  user User @relation(fields: [userId], references: [id])
+
+  // Reference to the Book model
+  book Book @relation(fields: [bookId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("reviews_and_ratings")
+}
+
+model Order {
+  id           String      @id @default(uuid())
+  userId       String // Assuming UUIDs are stored as strings
+  orderedBooks Json[]
+  status       OrderStatus @default(pending)
+  createdAt    DateTime    @default(now())
+
+  // Reference to the User model
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("orders")
+}
+
+enum Role {
+  admin
+  customer
+}
+
+enum OrderStatus {
+  pending
+  shipped
+  delivered
+}

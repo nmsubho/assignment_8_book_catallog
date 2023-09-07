@@ -14,5 +14,9 @@ yarn husky add .husky/pre-commit "yarn lint-prettier"
 ```
 - Step 4
 ```
+npx prisma init
+```
+- Step 5
+```
 npx prisma migrate dev --name init
 ```
