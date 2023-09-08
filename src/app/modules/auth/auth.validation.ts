@@ -11,7 +11,7 @@ const signupZodValidation = z.object({
     password: z.string({
       required_error: 'Password is required!',
     }),
-    role: z.string({
+    role: z.enum(['admin', 'customer'] as [string, ...string[]], {
       required_error: 'Role is required!',
     }),
     contactNo: z.string({
@@ -26,7 +26,7 @@ const signupZodValidation = z.object({
 
 const signinZodValidation = z.object({
   body: z.object({
-    id: z.string({
+    email: z.string({
       required_error: 'Email is required!',
     }),
     password: z.string({

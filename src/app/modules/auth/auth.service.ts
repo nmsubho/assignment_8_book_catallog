@@ -9,6 +9,14 @@ import bcrypt from 'bcrypt';
 import prisma from '../../../shared/prisma';
 
 const signup = async (data: User): Promise<User> => {
+  const isExist = await prisma.user.findUnique({
+    where: { email: data.email },
+  });
+
+  if (isExist) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'User already exist!');
+  }
+
   const encryptedUserPassword = await bcrypt.hash(
     data.password,
     Number(config.bcrypt_salt_rounds)
