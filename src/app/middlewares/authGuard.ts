@@ -19,10 +19,7 @@ const authGuard =
           'You are not authorized to perform this task!'
         );
       } else {
-        decoded = jwtHelpers.verifyToken(
-          token.split(' ')[1],
-          config.jwt.secret as Secret
-        );
+        decoded = jwtHelpers.verifyToken(token, config.jwt.secret as Secret);
         req.user = decoded;
         if (roles.includes(decoded.role)) {
           next();
