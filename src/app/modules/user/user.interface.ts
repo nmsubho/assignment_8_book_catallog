@@ -1,6 +1,6 @@
-export type IFacultyFilterRequest = {
+export type IUserFilterRequest = {
   searchTerm?: string | undefined;
-  academicFacultyId?: string | undefined;
+  academicUserId?: string | undefined;
   academicDepartmentId?: string | undefined;
   studentId?: string | undefined;
   email?: string | undefined;
