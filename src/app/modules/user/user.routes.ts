@@ -15,7 +15,7 @@ router.get(
   UserController.getSingleUser
 );
 
-router.put(
+router.patch(
   '/:id',
   authGuard(ENUM_USER_ROLE.ADMIN),
   validateRequest(UserValidation.update),

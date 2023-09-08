@@ -32,8 +32,14 @@ const getSingleUser = catchAsync(async (req: Request, res: Response) => {
 
 const updateUser = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
-  const payload = req.body;
-  const result = await UserService.updateUser(id, payload);
+  const { email, name, contactNo, address, profileImg } = req.body;
+  const result = await UserService.updateUser(id, {
+    email,
+    name,
+    contactNo,
+    address,
+    profileImg,
+  });
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
