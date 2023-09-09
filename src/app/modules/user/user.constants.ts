@@ -1,31 +1,22 @@
 export const userFilterableFields: string[] = [
   'searchTerm',
-  'userId',
   'email',
   'contactNo',
-  'gender',
-  'bloodGroup',
-  'gender',
-  'designation',
-  'academicUserId',
-  'academicDepartmentId',
+  'role',
 ];
 
 export const userSearchableFields: string[] = [
-  'firstName',
-  'lastName',
-  'middleName',
+  'name',
   'email',
   'contactNo',
-  'userId',
-  'designation',
+  'address',
 ];
 
-export const userRelationalFields: string[] = [
-  'academicUserId',
-  'academicDepartmentId',
-];
-export const userRelationalFieldsMapper: { [key: string]: string } = {
-  academicUserId: 'academicUser',
-  academicDepartmentId: 'academicDepartment',
-};
+// export const userRelationalFields: string[] = [
+//   'academicUserId',
+//   'academicDepartmentId',
+// ];
+// export const userRelationalFieldsMapper: { [key: string]: string } = {
+//   academicUserId: 'academicUser',
+//   academicDepartmentId: 'academicDepartment',
+// };

@@ -4,8 +4,8 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import prisma from '../../../shared/prisma';
 import {
-  userRelationalFields,
-  userRelationalFieldsMapper,
+  // userRelationalFields,
+  // userRelationalFieldsMapper,
   userSearchableFields,
 } from './user.constants';
 import { IUserFilterRequest } from './user.interface';
@@ -34,19 +34,19 @@ const getAllUsers = async (
   if (Object.keys(filterData).length > 0) {
     andConditions.push({
       AND: Object.keys(filterData).map(key => {
-        if (userRelationalFields.includes(key)) {
-          return {
-            [userRelationalFieldsMapper[key]]: {
-              id: (filterData as any)[key],
-            },
-          };
-        } else {
-          return {
-            [key]: {
-              equals: (filterData as any)[key],
-            },
-          };
-        }
+        // if (userRelationalFields.includes(key)) {
+        //   return {
+        //     [userRelationalFieldsMapper[key]]: {
+        //       id: (filterData as any)[key],
+        //     },
+        //   };
+        // } else {
+        return {
+          [key]: {
+            equals: (filterData as any)[key],
+          },
+        };
+        // }
       }),
     });
   }
