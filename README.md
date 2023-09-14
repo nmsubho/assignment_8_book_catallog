@@ -1,3 +1,23 @@
+## Installation Process:
+
+- Step 1 
+```
+yarn install
+```
+- Step 2
+```
+yarn husky install
+```
+- Step 3
+```
+yarn husky add .husky/pre-commit "yarn lint-prettier"
+```
+- Step 4
+```
+npx prisma migrate dev --name init
+```
+
+
 ## Live Link: [https://book-catallog-prisma-three.vercel.app/](https://book-catallog-prisma-three.vercel.app/)
 
 ## Application Routes:
