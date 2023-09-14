@@ -16,7 +16,8 @@
     "prisma-migrate": "npx prisma migrate dev --name",
     "prisma-format": "npx prisma format",
     "prisma-generate": "npx prisma generate",
-    "prisma-studio": "npx prisma studio"
+    "prisma-studio": "npx prisma studio",
+    "postinstall": "prisma generate"
   },
   "author": "Md. Nagib Mahfuz Subho",
   "license": "ISC",
