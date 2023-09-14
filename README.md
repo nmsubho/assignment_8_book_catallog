@@ -7,9 +7,9 @@
 ```javascript
 api/v1/auth/signup (POST)
 api/v1/users (GET)
-api/v1/users/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-api/v1/users/6177a5b87d32123f08d2f5d4 (PATCH)
-api/v1/users/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+api/v1/users/0a057bb1-f5aa-45f3-b5fa-146030020f7e (Single GET)
+api/v1/users/0a057bb1-f5aa-45f3-b5fa-146030020f7e (PATCH)
+api/v1/users/0a057bb1-f5aa-45f3-b5fa-146030020f7e (DELETE)
 api/v1/profile (GET)
 ```
 
@@ -18,9 +18,9 @@ api/v1/profile (GET)
 ```javascript
 api/v1/categories/create-category (POST)
 api/v1/categories (GET)
-api/v1/categories/6177a5b87d32123f08d2f5d4 (Single GET) Include an id that is saved in your database
-api/v1/categories/6177a5b87d32123f08d2f5d4 (PATCH)
-api/v1/categories/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved in your database
+api/v1/categories/7d119615-488d-4692-8fc3-8e8ce9501f64 (Single GET)
+api/v1/categories/7d119615-488d-4692-8fc3-8e8ce9501f64 (PATCH)
+api/v1/categories/7d119615-488d-4692-8fc3-8e8ce9501f64 (DELETE)
 ```
 
 ### Books
@@ -28,10 +28,10 @@ api/v1/categories/6177a5b87d32123f08d2f5d4 (DELETE) Include an id that is saved 
 ```javascript
 api/v1/books/create-book (POST)
 api/v1/books (GET)
-api/v1/books/:categoryId/category (GET)
-api/v1/books/:id (GET)
-api/v1/books/:id (PATCH)
-api/v1/books/:id (DELETE)
+api/v1/books/9414a3e1-571b-438d-8f68-e45d6f2e544b/category (GET)
+api/v1/books/99a6c78b-ecec-4b3e-ad91-63532aedb6b5 (GET)
+api/v1/books/99a6c78b-ecec-4b3e-ad91-63532aedb6b5 (PATCH)
+api/v1/books/99a6c78b-ecec-4b3e-ad91-63532aedb6b5 (DELETE)
 ```
 
 ### Orders
@@ -39,4 +39,4 @@ api/v1/books/:id (DELETE)
 ```javascript
 api/v1/orders/create-order (POST)
 api/v1/orders (GET)
-api/v1/orders/:orderId (GET)
+api/v1/orders/ae6406f6-028b-456b-89d2-51ab20d196d3 (GET)
